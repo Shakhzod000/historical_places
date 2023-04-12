@@ -1,8 +1,14 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:historical_places/pages/home/home_view.dart';
 import 'package:historical_places/pages/main/main_controller.dart';
+import 'package:historical_places/pages/regions/regions_view.dart';
+import 'package:historical_places/pages/save/save_view.dart';
+import 'package:historical_places/pages/search/search_view.dart';
+import 'package:historical_places/pages/setting/setting_view.dart';
 
 class MainView extends GetView<MainController> {
   const MainView({super.key});
@@ -10,45 +16,45 @@ class MainView extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: Padding(
-          padding: EdgeInsets.only(bottom: 45.h),
-          child: FloatingActionButton(
-            elevation: .0,
-            onPressed: () {},
-            child: Image.asset('assets/icons/world_icon.png'),
-          ),
-        ),
+        backgroundColor: Colors.white,
+        bottomNavigationBar: GetBuilder<MainController>(
+            init: controller,
+            builder: (_) {
+              return CurvedNavigationBar(
+                  onTap: (newValue) {
+                    controller.pageController!.animateToPage(newValue,
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.easeIn);
+                  },
+                  height: 70.h,
+                  buttonBackgroundColor: const Color(0xFF386bf6),
+                  backgroundColor: Colors.white,
+                  animationDuration: const Duration(milliseconds: 400),
+                  color: const Color(0xff386bf6),
+                  items: const [
+                    Icon(Icons.home_filled, color: Colors.white),
+                    Icon(CupertinoIcons.search, color: Colors.white),
+                    Icon(Icons.location_pin, color: Colors.white),
+                    Icon(Icons.bookmark, color: Colors.white),
+                    Icon(Icons.settings, color: Colors.white)
+                  ]);
+            }),
         body: GetBuilder<MainController>(
             init: controller,
             builder: (_) {
-              return CupertinoTabScaffold(
-                  controller: controller.tabController,
-                  backgroundColor: Colors.white,
-                  resizeToAvoidBottomInset: false,
-                  tabBar: CupertinoTabBar(
-                      height: 70.h,
-                      onTap: (newIndex) => controller.onTabIndex,
-                      items: [
-                        BottomNavigationBarItem(
-                            icon: Image.asset('assets/icons/home_icon.png'),
-                            activeIcon:
-                                Image.asset('assets/icons/home_fill.png')),
-                        BottomNavigationBarItem(
-                            icon: Image.asset('assets/icons/search_icon.png'),
-                            activeIcon:
-                                Image.asset('assets/icons/search_fill.png')),
-                        BottomNavigationBarItem(
-                            icon: Image.asset('assets/icons/bookmark_icon.png'),
-                            activeIcon:
-                                Image.asset('assets/icons/bookmark_fill.png')),
-                        const BottomNavigationBarItem(
-                            icon: Icon(Icons.settings_outlined),
-                            activeIcon: Icon(Icons.settings)),
-                      ]),
-                  tabBuilder: (context, index) => CupertinoTabView(
-                        builder: (context) => controller.pages[index],
-                      ));
+              return PageView(
+                controller: controller.pageController,
+                onPageChanged: (value) {
+                  controller.onTabIndex(value);
+                },
+                children: const [
+                  HomeView(),
+                  SearchView(),
+                  RegionView(),
+                  SaveView(),
+                  SettingView()
+                ],
+              );
             }));
   }
 }

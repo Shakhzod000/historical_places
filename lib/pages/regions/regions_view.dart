@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:historical_places/pages/home/home_controller.dart';
+import 'package:historical_places/pages/regions/regions_controller.dart';
 
-class HomeView extends GetView<HomeController> {
-  const HomeView({super.key});
+class RegionView extends GetView<RegionsController> {
+  const RegionView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Text('home'),
+        child: Text('Regions'),
       ),
     );
   }

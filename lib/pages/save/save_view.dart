@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:historical_places/pages/save/save_controller.dart';
@@ -8,6 +7,8 @@ class SaveView extends GetView<SaveController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+      backgroundColor: Colors.white,
+    );
   }
 }
