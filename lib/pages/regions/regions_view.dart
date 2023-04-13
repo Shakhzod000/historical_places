@@ -10,7 +10,7 @@ class RegionView extends GetView<RegionsController> {
     return const Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Text('Regions'),
+        child: Text('Regions Screen'),
       ),
     );
   }

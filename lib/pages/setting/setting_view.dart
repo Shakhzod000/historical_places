@@ -9,6 +9,9 @@ class SettingView extends GetView<SettingController> {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.white,
+      body: Center(
+        child: Text('Setting Screen'),
+      ),
     );
   }
 }

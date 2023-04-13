@@ -9,14 +9,16 @@ import 'package:historical_places/pages/regions/regions_view.dart';
 import 'package:historical_places/pages/save/save_view.dart';
 import 'package:historical_places/pages/search/search_view.dart';
 import 'package:historical_places/pages/setting/setting_view.dart';
+import 'package:historical_places/utils/app_const/app_const.dart';
 
 class MainView extends GetView<MainController> {
   const MainView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    context.initScreenSize;
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFf2f2f7),
         bottomNavigationBar: GetBuilder<MainController>(
             init: controller,
             builder: (_) {
@@ -28,7 +30,7 @@ class MainView extends GetView<MainController> {
                   },
                   height: 70.h,
                   buttonBackgroundColor: const Color(0xFF386bf6),
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.transparent,
                   animationDuration: const Duration(milliseconds: 400),
                   color: const Color(0xff386bf6),
                   items: const [
@@ -43,6 +45,7 @@ class MainView extends GetView<MainController> {
             init: controller,
             builder: (_) {
               return PageView(
+                physics: const NeverScrollableScrollPhysics(),
                 controller: controller.pageController,
                 onPageChanged: (value) {
                   controller.onTabIndex(value);
