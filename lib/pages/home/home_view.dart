@@ -58,42 +58,45 @@ class HomeView extends GetView<HomeController> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            width: 375.w,
-            height: 590.h,
-            child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                padding: EdgeInsets.only(top: 27.h),
-                shrinkWrap: true,
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 14.5.h),
-                        child: const HomeContainer(
-                          title: 'Minor masjidi',
-                          subTitle: 'Toshkent, Uzbekistan',
-                          image: 'assets/images/minor_masjidi.jpg',
+      body: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: Column(
+          children: [
+            SizedBox(
+              width: 375.w,
+              height: 598.h,
+              child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  padding: EdgeInsets.only(top: 27.h),
+                  shrinkWrap: true,
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 14.5.h),
+                          child: const HomeContainer(
+                            title: 'Minor masjidi',
+                            subTitle: 'Toshkent, Uzbekistan',
+                            image: 'assets/images/minor_masjidi.jpg',
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 50.w),
-                        child: const Divider(
-                          thickness: 2,
-                          color: Color(0xFF386bf6),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 50.w),
+                          child: const Divider(
+                            thickness: 2,
+                            color: Color(0xFF386bf6),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 14.5.h,
-                      )
-                    ],
-                  );
-                }),
-          )
-        ],
+                        SizedBox(
+                          height: 14.5.h,
+                        )
+                      ],
+                    );
+                  }),
+            )
+          ],
+        ),
       ),
     );
   }
