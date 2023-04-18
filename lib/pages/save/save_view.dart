@@ -15,8 +15,23 @@ class SaveView extends GetView<SaveController> {
         backgroundColor: const Color(0xFFf2f2f7),
         appBar: AppBar(
           toolbarHeight: 65.h,
-          backgroundColor: const Color(0xFF386bf6),
+          backgroundColor: const Color(0xFF409cff),
           centerTitle: true,
+          flexibleSpace: DecoratedBox(
+            decoration: const BoxDecoration(color: Colors.transparent),
+            child: Container(
+              height: double.infinity,
+              width: 375.w,
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                    Color(0xFF3867d5),
+                    Color(0xFF81c7f5),
+                  ])),
+            ),
+          ),
           title: Text(
             'Saved adreeses',
             style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),

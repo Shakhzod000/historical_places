@@ -14,40 +14,41 @@ class HomeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 8.0.w),
       height: 275.h,
       width: 375.w,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.vertical(
-              bottom: const Radius.circular(20).r,
-              top: const Radius.circular(10).r),
-          color: Colors.white),
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(tileMode: TileMode.clamp, colors: [
+        Color(0xFF409cff),
+        Color(0xFF64d2ff),
+        Color(0xFF5ac8fa)
+      ])),
       child: Column(
         children: [
           Container(
             height: 200.h,
             width: 375.w,
             decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadius.vertical(top: const Radius.circular(10).r),
                 image: DecorationImage(
                     image: AssetImage(image), fit: BoxFit.cover)),
           ),
           ListTile(
             title: Text(
               title,
-              style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 15.sp,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white),
             ),
             subtitle: Text(
               subTitle,
-              style: TextStyle(fontSize: 12.sp, color: const Color(0xFF8e8e93)),
+              style: TextStyle(fontSize: 12.sp, color: const Color(0xFFe5e5ea)),
             ),
             trailing: IconButton(
-                iconSize: 30.sp,
+                iconSize: 27.sp,
                 onPressed: () {},
                 icon: const Icon(
                   Icons.bookmark_outline,
-                  color: Color(0xFF9db2ce),
+                  color: Colors.white,
                 )),
           )
         ],

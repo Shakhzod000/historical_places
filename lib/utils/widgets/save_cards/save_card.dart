@@ -14,18 +14,20 @@ class SaveCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 8.w, right: 8.w, bottom: 18.h),
+      margin: EdgeInsets.only(left: 8.w, right: 8.w, bottom: 10.h),
       height: 100.h,
       width: 375.w,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15).r, color: Colors.white),
+        borderRadius: BorderRadius.circular(8.0).r,
+        color: Colors.white,
+      ),
       child: Row(
         children: [
           Container(
             height: 100.h,
             width: 100.w,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15).r,
+                borderRadius: BorderRadius.circular(8.0).r,
                 image: DecorationImage(
                     image: AssetImage(image), fit: BoxFit.cover)),
           ),
@@ -59,7 +61,7 @@ class SaveCard extends StatelessWidget {
                 onPressed: () {},
                 icon: const Icon(
                   Icons.bookmark,
-                  color: Color(0xFF386bf6),
+                  color: Color(0xFF0a84ff),
                 )),
           ),
           SizedBox(width: 5.w)

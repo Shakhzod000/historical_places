@@ -15,9 +15,21 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       backgroundColor: const Color(0xfff2f2f7),
       appBar: AppBar(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.r))),
-        backgroundColor: const Color(0xFF386bf6),
+        flexibleSpace: DecoratedBox(
+          decoration: const BoxDecoration(color: Colors.transparent),
+          child: Container(
+            height: double.infinity,
+            width: 375.w,
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                  Color(0xFF3867d5),
+                  Color(0xFF81c7f5),
+                ])),
+          ),
+        ),
         toolbarHeight: 115.h,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,10 +94,10 @@ class HomeView extends GetView<HomeController> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 50.w),
+                          padding: EdgeInsets.symmetric(horizontal: 100.w),
                           child: const Divider(
-                            thickness: 2,
-                            color: Color(0xFF386bf6),
+                            thickness: 1,
+                            color: Color(0xFFd1d1d6),
                           ),
                         ),
                         SizedBox(
